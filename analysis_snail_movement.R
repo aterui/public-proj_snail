@@ -12,8 +12,8 @@
 
 #' # Load package -----
   rm(list = ls())
-library(tidyverse)
-library(ggpubr)
+  library(tidyverse)
+  library(ggpubr)
 
   
   
@@ -59,14 +59,14 @@ library(ggpubr)
     na.omit()
 
 # Check summary 
-  summary(snail_move)
-
+  summary(snail_move$Dist)
+  summary(abs(snail_move$Dist))
   
 #'- Movement plot
   snail_move_dist <- gghistogram(snail_move, x = "Dist", fill = "lightgrey", binwidth = 5) +
     scale_y_continuous("Frequency",  breaks = seq(0, 8, 2)) +
     scale_x_continuous("Distance (m)",  breaks = seq(-80, 80, 5)) +
-    geom_vline(xintercept = 0, linetype="dashed", color = "red", size=1.5) + 
+    geom_vline(xintercept = 3.3, linetype="dashed", color = "red", size=1.0) + # value 3.3 is mean movement
     theme_bw() +
     theme(text=element_text(face="bold", size=8),  
         legend.position = "none",                     # remove legend panel
